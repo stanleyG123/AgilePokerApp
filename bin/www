@@ -9,7 +9,12 @@ var server = app.listen(app.get('port'), function() {
 });
 
 var io = require('socket.io')(server);
-
 io.on('connection', function(socket){
-  console.log("New socket IO connection!");
-})
+  console.log('New connection!');
+  socket.on('disconnect', function(){
+    console.log('Lost connection.');
+  });
+  socket.on('vote performed', function(data){
+    console.log(data.text);
+  });
+});
