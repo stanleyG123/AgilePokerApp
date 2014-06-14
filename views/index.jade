@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  h1= title
+  p='Enter Session Name'
+  form(action='/startSession',method='post')
+    input(type='text',name='sessionName')    
+    input(type='submit',value='start')
+    
